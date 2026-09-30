@@ -2,6 +2,8 @@
 
 A simple weather showcase app with a modern card-style UI (rounded corners, glassmorphism).
 
+![Weather App screenshot](screenshot.png)
+
 ## Features
 - Search any city by name
 - "Use my location" via browser geolocation
@@ -28,4 +30,5 @@ python3 -m http.server 8080
 ## Files
 - `index.html` - page structure (cards)
 - `style.css` - styling, card view + rounded corners
-- `app.js` - geocoding + weather fetching + rendering
+- `app.js` - demo data + rendering
+- `screenshot.png` - preview of the UI
