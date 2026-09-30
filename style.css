@@ -1,0 +1,281 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-1: #1e2a4a;
+  --bg-2: #2b1746;
+  --card: rgba(255, 255, 255, 0.09);
+  --card-border: rgba(255, 255, 255, 0.14);
+  --text: #f4f6fb;
+  --muted: rgba(244, 246, 251, 0.62);
+  --accent: #7aa2ff;
+  --radius: 22px;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- Card view with rounded corners ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 22px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32);
+}
+
+/* ---------- Search ---------- */
+.search-card h1 {
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+}
+
+#search-form {
+  display: flex;
+  gap: 10px;
+}
+
+#search-input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+#search-input::placeholder {
+  color: var(--muted);
+}
+
+#search-input:focus {
+  border-color: var(--accent);
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #10162e;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+button.secondary {
+  margin-top: 12px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+}
+
+/* ---------- Status ---------- */
+.status {
+  text-align: center;
+  padding: 14px;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  color: var(--muted);
+}
+
+.status.error {
+  color: #ff9a9a;
+}
+
+/* ---------- Current weather ---------- */
+.current-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.current-header h2 {
+  font-size: 1.35rem;
+}
+
+.place-detail {
+  font-size: 0.9rem;
+}
+
+.current-icon {
+  font-size: 2.6rem;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+}
+
+.current-main {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 6px 0 20px;
+}
+
+.big-temp {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.current-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 1rem;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+/* ---------- Info tiles ---------- */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.info-tile {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-tile .label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.info-tile .value {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* ---------- Hourly ---------- */
+.card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.hourly-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.hour-tile {
+  flex: 0 0 auto;
+  width: 72px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 12px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hour-tile .time {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.hour-tile .icon {
+  font-size: 1.35rem;
+}
+
+.hour-tile .temp {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ---------- Daily ---------- */
+.daily-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.day-row {
+  display: grid;
+  grid-template-columns: 96px 32px 1fr 64px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 14px;
+}
+
+.day-row .day-name {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.day-row .icon {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.day-row .range {
+  text-align: right;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.day-row .range strong {
+  color: var(--text);
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 420px) {
+  .big-temp {
+    font-size: 3rem;
+  }
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

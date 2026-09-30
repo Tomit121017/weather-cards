@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <!-- Search card -->
+    <section class="card search-card">
+      <h1>🌤️ Weather</h1>
+      <form id="search-form">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Search a city (e.g. London, Tokyo)..."
+          autocomplete="off"
+        />
+        <button type="submit">Search</button>
+      </form>
+      <button id="locate-btn" class="secondary" type="button">
+        📍 Use my location
+      </button>
+    </section>
+
+    <!-- Current weather card -->
+    <section id="current-card" class="card current-card">
+      <div class="current-header">
+        <div>
+          <h2 id="place-name">New York</h2>
+          <p id="place-detail" class="muted">New York, United States</p>
+        </div>
+        <div id="current-icon" class="current-icon">⛅</div>
+      </div>
+
+      <div class="current-main">
+        <span id="current-temp" class="big-temp">23°</span>
+        <div class="current-desc">
+          <span id="current-desc">Partly cloudy</span>
+          <span id="feels-like" class="muted">Feels like 25°</span>
+        </div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-tile">
+          <span class="label">Wind</span>
+          <span id="wind" class="value">14 km/h</span>
+        </div>
+        <div class="info-tile">
+          <span class="label">Humidity</span>
+          <span id="humidity" class="value">62%</span>
+        </div>
+        <div class="info-tile">
+          <span class="label">Precipitation</span>
+          <span id="precip" class="value">0.0 mm</span>
+        </div>
+        <div class="info-tile">
+          <span class="label">Pressure</span>
+          <span id="pressure" class="value">1014 hPa</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hourly forecast card -->
+    <section id="hourly-card" class="card">
+      <h3>Next 24 hours</h3>
+      <div id="hourly-list" class="hourly-list"></div>
+    </section>
+
+    <!-- 7-day forecast card -->
+    <section id="daily-card" class="card">
+      <h3>7-day forecast</h3>
+      <div id="daily-list" class="daily-list"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
